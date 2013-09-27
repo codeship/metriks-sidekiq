@@ -1,12 +1,11 @@
 require_relative '../core_ext/string'
-require 'metriks'
-require 'pry'
 
 module MetriksSidekiq
   class Middleware
-    attr_reader :prefix
+    attr_reader :client, :prefix
 
-    def initialize(options = {})
+    def initialize(client, options = {})
+      @client = client
       @prefix = options.delete(:prefix) || "sidekiq"
     end
 
@@ -14,16 +13,16 @@ module MetriksSidekiq
       if msg['enqueued_at']
         # convert and round to ms
         latency = ((Time.now.to_f - msg['enqueued_at']) * 1000).round
-        Metriks.timer(metric_key(worker, "latency")).update latency
+        client.timer(metric_key(worker, "latency")).update latency
       end
 
-      Metriks.timer(metric_key(worker, 'duration')).time do
+      client.timer(metric_key(worker, 'duration')).time do
         yield
       end
 
-      Metriks.meter(metric_key(worker, "success")).mark
+      client.meter(metric_key(worker, "success")).mark
     rescue Exception => e
-      Metriks.meter(metric_key(worker, "failure")).mark
+      client.meter(metric_key(worker, "failure")).mark
       raise e
     end
 
