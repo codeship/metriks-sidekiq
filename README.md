@@ -1,6 +1,7 @@
 # Sidekiq::Metriks
 
-TODO: Write a gem description
+[ ![Codeship Status for sidekiq-metriks](https://www.codeship.io/projects/67077520-0995-0131-95d7-0ab7c49cb21d/status)](https://www.codeship.io/projects/217)
+
 
 ## Installation
 
