@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "metriks-sidekiq"
   spec.version       = Metriks::Sidekiq::VERSION
   spec.authors       = ["beanieboi"]
-  spec.email         = ["beanie@benle.de"]
+  spec.email         = ["ben@codeship.io"]
   spec.description   = %q{measure sidekiq performance with Metriks}
   spec.summary       = %q{measure sidekiq performance with Metriks}
   spec.homepage      = ""

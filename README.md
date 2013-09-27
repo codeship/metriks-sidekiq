@@ -7,15 +7,11 @@
 
 Add this line to your application's Gemfile:
 
-    gem 'metriks-sidekiq'
+    gem 'metriks-sidekiq',    github: 'codeship/metriks-sidekiq
 
 And then execute:
 
     $ bundle
-
-Or install it yourself as:
-
-    $ gem install metriks-sidekiq
 
 ## Usage
 
