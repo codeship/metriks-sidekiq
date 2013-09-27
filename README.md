@@ -15,7 +15,12 @@ And then execute:
 
 ## Usage
 
-TODO: Write usage instructions here
+	Sidekiq.configure_server do |config|
+	  config.server_middleware do |chain|
+    	chain.add MetriksSidekiq::Middleware, Metriks, prefix: "testing.sidekiq"
+  	  end
+	end
+
 
 ## Contributing
 
