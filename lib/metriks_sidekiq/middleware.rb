@@ -6,7 +6,7 @@ module MetriksSidekiq
 
     def initialize(client, options = {})
       @client = client
-      @prefix = options.delete(:prefix) || "sidekiq"
+      @prefix = options.delete(:prefix) || "sidekiq.worker"
     end
 
     def call(worker, msg, queue)
